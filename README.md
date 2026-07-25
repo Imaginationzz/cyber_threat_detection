@@ -76,7 +76,7 @@ newgrp docker
 Clone the Repository:
 
 Bash
-git clone <YOUR_REPOSITORY_URL>
+git clone https://github.com/Imaginationzz/cyber_threat_detection.git
 cd <PROJECT_FOLDER_NAME>
 Build the Docker Image:
 
