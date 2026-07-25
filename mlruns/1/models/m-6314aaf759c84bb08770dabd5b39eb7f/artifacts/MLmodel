@@ -1,0 +1,23 @@
+artifact_path: file:///C:/Users/yezid/Desktop/mlops projects/cyber threat detection
+  project/mlruns/1/models/m-6314aaf759c84bb08770dabd5b39eb7f/artifacts
+flavors:
+  python_function:
+    data: model.ubj
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.11.9
+  xgboost:
+    code: null
+    data: model.ubj
+    model_class: xgboost.sklearn.XGBClassifier
+    model_format: ubj
+    xgb_version: 3.2.0
+mlflow_version: 3.14.0
+model_id: m-6314aaf759c84bb08770dabd5b39eb7f
+model_size_bytes: 406251
+model_uuid: m-6314aaf759c84bb08770dabd5b39eb7f
+prompts: null
+run_id: a119c2085edc4f649084f56b5d734e6c
+utc_time_created: '2026-07-24 21:06:47.190686'
