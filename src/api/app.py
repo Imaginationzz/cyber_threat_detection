@@ -5,10 +5,17 @@ import pandas as pd
 
 app = FastAPI(title="Cyber Threat Classification API", version="1.0")
 
+import os
+
 try:
     model = xgb.XGBClassifier()
-    # Note: In a production environment, you would pull the best model directly from the MLflow registry.
-    print("Model initialized.")
+    # Get the absolute path to the directory where app.py is located
+    current_dir = os.path.dirname(__file__)
+    model_path = os.path.join(current_dir, 'xgboost_model.json')
+    
+    # Load the trained weights into the model shell
+    model.load_model(model_path)
+    print("Model successfully loaded from disk.")
 except Exception as e:
     print(f"Warning: Model not found. Error: {e}")
 

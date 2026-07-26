@@ -60,6 +60,9 @@ def train_model():
         
         # 4. Save (Log) the Model to MLflow
         mlflow.xgboost.log_model(model, "xgboost_threat_model")
+
+        # ADD THIS LINE: Save a static version directly into the API folder
+        model.save_model(os.path.join(os.path.dirname(__file__), '../api/xgboost_model.json'))
         
         print("\nClassification Report:")
         print(classification_report(y_test, predictions, target_names=encoder.classes_))
