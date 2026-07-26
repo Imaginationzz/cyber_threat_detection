@@ -19,7 +19,7 @@ spec:
       containers:
         - name: threat-api-container
           # Replace 'yourdockerhubusername' with your actual username later
-          image: yourdockerhubusername/threat-classifier-api:latest
+          image: yezidrahmouni/threat-classifier-api:latest
           ports:
             - containerPort: 8000
 
