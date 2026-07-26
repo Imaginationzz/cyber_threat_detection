@@ -1,0 +1,39 @@
+---
+# 1. The Deployment: Manages the Pods (Containers)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: threat-api-deployment
+  labels:
+    app: threat-api
+spec:
+  replicas: 2 # Kubernetes will ensure exactly 2 copies are always running
+  selector:
+    matchLabels:
+      app: threat-api
+  template:
+    metadata:
+      labels:
+        app: threat-api
+    spec:
+      containers:
+        - name: threat-api-container
+          # Replace 'yourdockerhubusername' with your actual username later
+          image: yourdockerhubusername/threat-classifier-api:latest
+          ports:
+            - containerPort: 8000
+
+---
+# 2. The Service: Routes External Traffic to the Pods
+apiVersion: v1
+kind: Service
+metadata:
+  name: threat-api-service
+spec:
+  type: NodePort # Exposes the service to the outside world
+  selector:
+    app: threat-api
+  ports:
+    - port: 8000 # The port the Service listens on
+      targetPort: 8000 # The port the Container is listening on
+      nodePort: 30000 # The specific external port we will hit on the EC2 IP
