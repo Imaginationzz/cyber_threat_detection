@@ -53,7 +53,7 @@ resource "aws_security_group" "mlops_sg" {
 # 3. The actual EC2 Virtual Server
 resource "aws_instance" "mlops_server" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro" # Minimum size recommended to comfortably run Kubernetes
+  instance_type = "t3.small" # Minimum size recommended to comfortably run Kubernetes
 
   vpc_security_group_ids = [aws_security_group.mlops_sg.id]
 
