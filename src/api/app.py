@@ -40,7 +40,7 @@ def predict_threat(log: NetworkLog):
         prediction = model.predict(data)
         
         # Map the numeric prediction back to our threat labels
-        labels = {0: 'Safe', 1: 'DDoS', 2: 'Brute_Force', 3: 'Port_Scan', 4: 'SQL_Injection'}
+        labels = {0: 'Brute_Force', 1: 'DDoS', 2: 'Port_Scan', 3: 'SQL_Injection', 4: 'Safe'}
         predicted_label = labels.get(int(prediction[0]), "Unknown")
         
         return {"prediction": predicted_label, "status": "success"}
